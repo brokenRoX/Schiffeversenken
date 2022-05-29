@@ -4,6 +4,7 @@ Projektidee LabWTS
 Full-Stack Programmierung des Spiels „Schiffe versenken“
 
 Ziele:
+
 1v1 Schiffeversenken gegen AI.
 AI macht zufällige Züge. (werden versuchen Logik einzubauen, sodass wenn die AI ein Schiff
 getroffen hat, dort weiter schießt.)
@@ -17,6 +18,7 @@ Keine “Special Moves” vorerst.
 * Aircraft Carrier (5 squares):
 
 Clientseitig:
+
 Es soll eine grafische Weboberfläche erstellt werden, mit reset button, schuss button.
 2 leere Spielfelder werden angezeigt. (Eines für AI und eines für Spieler)
 Schiffe können per Drag’n’Drop gesetzt werden.
@@ -24,6 +26,7 @@ Schiffe vom AI werden (natürlich) nicht beim Client angezeigt.
 Auf dem eigenen Feld wird angezeigt, wo die AI hingeschossen hat.
 
 Serverseitig:
+
 Beide Spieler (AI & Client) müssen am Server das aktuelle Spielfeld gespeichert haben.
 Die AI muss sich selbst Schiffe zuweisen und deren Positionen speichern.
 Wird ein Schiff getroffen speichert der Server die Position des Abschusses.
