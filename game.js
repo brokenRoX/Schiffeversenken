@@ -8,10 +8,14 @@ const game = {
                 field.classList.add("field")
                 field.id = boardDivId + "_" + x + "_" + y
                 board.appendChild(field)
-                
-
             }
         }
     }
 
 }
+
+function initialize(myShipsDivId, otherShipsDivId) {
+    game.drawboard(myShipsDivId)
+    game.drawboard(otherShipsDivId)
+}
+
