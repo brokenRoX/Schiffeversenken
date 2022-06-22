@@ -1,6 +1,25 @@
+:root {
+    --grid-size: 300px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--grid-size);
+}
+
 .field {
-    height: 10px;
-    width: 10px;
+    height: calc(var(--grid-size) / 10);
+    width: calc(var(--grid-size) / 10);
     border-width: 1px;
     border-style: solid;
 }
+
