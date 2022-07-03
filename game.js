@@ -18,7 +18,7 @@ const game = {
     boardIds: [],
     ourState: [],
     otherState: [],
-    myTurn: false,
+    myTurn: true,
     drawboard: function(boardDivId) {
         const board = document.getElementById(boardDivId)
         for (let y = 0; y < this.boardsize[1]; y++) {
@@ -38,6 +38,8 @@ const game = {
         const isOurs = boardId === this.boardIds[0]
         if (isOurs) return
         if (!this.myTurn) return
+
+        this.myTurn = false //makes sure, that the player can't click another field until the server message allows the player to make another move.
         this.attack(x, y)
         console.log("clicked " + (isOurs) + x + y)
     },
