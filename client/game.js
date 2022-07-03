@@ -5,13 +5,6 @@ const state = {
     miss: "miss",
     unknown: "unknown"
 }
-//todo
-const message = {
-    ourState: [],
-    otherState: [],
-    myTurn: true,
-    serverMessages: []
-}
 
 const game = {
     boardsize: [10, 10],
