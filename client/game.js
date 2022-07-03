@@ -20,20 +20,20 @@ const game = {
                 field.classList.add("field")
                 field.id = boardDivId + "_" + x + "_" + y
 
-                field.addEventListener("click", function() { 
-                    game.onClick(boardDivId, x, y)
+                field.addEventListener("click", async function() { 
+                    await game.onClick(boardDivId, x, y)
                 })
                 board.appendChild(field)
             }
         }
     },
-    onClick: function(boardId, x, y) {
+    onClick: async function(boardId, x, y) {
         const isOurs = boardId === this.boardIds[0]
         if (isOurs) return
         if (!this.myTurn) return
 
         this.myTurn = false //makes sure, that the player can't click another field until the server message allows the player to make another move.
-        this.attack(x, y)
+        await this.attack(x, y)
         console.log("clicked " + (isOurs) + x + y)
     },
     updateUiBoard: function(boardId, boardState) {
@@ -51,7 +51,9 @@ const game = {
         this.updateUiBoard(this.boardIds[0], this.ourState)
         this.updateUiBoard(this.boardIds[1], this.otherState)
     },
-    attack: function(x, y) {
+    attack: async function(x, y) {
+        const response = await fetch("http://localhost:3000/attack")
+        const message = await response.json()
         this.serverUpdate(message)
     },
     serverUpdate: function(message) {
@@ -81,17 +83,5 @@ function initialize(myShipsDivId, otherShipsDivId) {
     }
     game.updateUi()
 
-
-    //todo: remove
-    for (let y = 0; y < game.boardsize[1]; y++) {
-        let ourRow = []
-        let otherRow = []
-        for (let x = 0; x < game.boardsize[0]; x++) {
-            ourRow.push(state.miss)
-            otherRow.push(state.hit)
-        }
-        message.ourState.push(ourRow)
-        message.otherState.push(otherRow)
-    }
 }
 

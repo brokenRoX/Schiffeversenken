@@ -1,8 +1,10 @@
 const port = 3000
 
-var express = require("express")
+const cors = require("cors")
+const express = require("express")
 
-var app = express()
+const app = express()
+app.use(cors())
 
 const state = {
     water: "water",
