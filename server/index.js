@@ -2,9 +2,22 @@ const port = 3000
 
 const cors = require("cors")
 const express = require("express")
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
+
 
 const app = express()
 app.use(cors())
+app.use(cookieParser())
+
+
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(sessions({
+    secret: "keydbfisdhfuhsndsdnunurr",
+    saveUninitialized: true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
 
 const state = {
     water: "water",
