@@ -84,4 +84,3 @@ function initialize(myShipsDivId, otherShipsDivId) {
     game.updateUi()
 
 }
-

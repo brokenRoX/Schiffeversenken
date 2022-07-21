@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="game.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="game.css">
+    <title>Battleship</title>
+
+    <!--Fonts-->
+    <link rel="stylesheet" href="https://use.typekit.net/xuq3ugv.css">
+</head>
+
+<body>
+    <!--Header-->
+    <header>
+        <div id="logo">
+            Battleships
+        </div>
+
+        <div id="placeholder">
+            Lorem
+        </div>
+    </header>
+
+    <section>
+        <div id="me">
+            Me
+        </div>
+
+        <div id="computer">
+            Computer
+        </div>
+    </section>
+
+    <!--Main-->
+    <main>
+        <div id="myships" class="grid"></div>
+        <br />
+        <div id="otherships" class="grid"></div>
+
+        <script type="text/javascript">
+            initialize("myships", "otherships");
+        </script>
+    </main>
+</body>
+
+</html>

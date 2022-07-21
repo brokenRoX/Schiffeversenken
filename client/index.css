@@ -1,0 +1,57 @@
+/* General styling */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  overflow: hidden;
+  font-family: 'Octynaz', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#BG {
+  background-image: url('images/BG.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  transition: .5s;
+  opacity: 1;
+}
+
+#title {
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: black;
+  font-size: 175px;
+}
+
+#play {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: black;
+  font-size: 150px;
+}
+
+#play:hover {
+  opacity: .6;
+}
+
+.background_size {
+  transform: scale(1.5);
+  opacity: 0 !important;
+}
