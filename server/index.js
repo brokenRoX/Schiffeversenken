@@ -47,6 +47,7 @@ for (let y = 0; y < 10; y++) {
 
 app.get("/attack", (req, res, next) => res.json(message))
 
+app.post("/startgame", (req, res, next) => res.json(message))
 
 app.listen(port, () => {
     console.log("Server running on port " + port);

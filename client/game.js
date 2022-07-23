@@ -9,6 +9,7 @@ const state = {
 const game = {
     boardsize: [10, 10],
     boardIds: [],
+    startbuttonId: undefined,
     ourState: [],
     otherState: [],
     myTurn: true,
@@ -26,6 +27,24 @@ const game = {
                 board.appendChild(field)
             }
         }
+    },
+    initializeStartButton: function(startgameId) {
+        this.startbuttonId = startgameId
+        document.getElementById(startgameId).addEventListener("click", async function() {
+            await game.startgame()
+        })
+    },
+    startgame: async function() {
+        //todo: check if ships are placed correctly
+        const response = await fetch(
+            "http://localhost:3000/startgame",
+            {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(this.ourState)
+            })
+        const message = await response.json()
+        this.serverUpdate(message)
     },
     onClick: async function(boardId, x, y) {
         const isOurs = boardId === this.boardIds[0]
@@ -52,7 +71,7 @@ const game = {
         this.updateUiBoard(this.boardIds[1], this.otherState)
     },
     attack: async function(x, y) {
-        const response = await fetch("http://localhost:3000/attack")
+        const response = await fetch("http://localhost:3000/attack") //todo: send coordinates
         const message = await response.json()
         this.serverUpdate(message)
     },
@@ -65,11 +84,12 @@ const game = {
     }
 }
 
-function initialize(myShipsDivId, otherShipsDivId) {
+function initialize(myShipsDivId, otherShipsDivId, startgameId) {
     game.boardIds.push(myShipsDivId)
     game.boardIds.push(otherShipsDivId)
     game.drawboard(myShipsDivId)
     game.drawboard(otherShipsDivId)
+    game.initializeStartButton(startgameId)
 
     for (let y = 0; y < game.boardsize[1]; y++) {
         let ourRow = []
