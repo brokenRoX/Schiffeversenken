@@ -53,6 +53,7 @@ body:before {
     background-image: url('images/BG.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -1;
 }
 
 header {
