@@ -98,3 +98,21 @@ section{
     font-size: 40px;
     margin-right: 385px;
 }
+
+
+.water {
+    background-color: blue;
+  }
+  .ship {
+    background-color: black;
+  }
+  .unknown {
+    background-color: grey;
+  }
+  .miss {
+    background-color: yellow;
+  }
+  .hit {
+    background-color: red;
+  }
+  
