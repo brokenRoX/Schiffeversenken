@@ -31,25 +31,16 @@ const state = {
     unknown: "unknown"
 }
 
-const message = {
-    ourState: [],
-    otherState: [],
-    myTurn: true,
-    serverMessages: []
-}
-
-for (let y = 0; y < 10; y++) {
-    let ourRow = []
-    let otherRow = []
-    for (let x = 0; x < 10; x++) {
-        ourRow.push(state.miss)
-        otherRow.push(state.hit)
+function checkEndGame(board) {
+    for (let y = 0; y < 10; y++) {
+        for (let x = 0; x < 10; x++) {
+            if (board[y][x] === state.ship) {
+                return false
+            }
+        }
     }
-    message.ourState.push(ourRow)
-    message.otherState.push(otherRow)
+    return true
 }
-
-
 
 function validateBoardDiagonal(board) {
     for (let y = 0; y < 9; y++) {
@@ -255,11 +246,23 @@ app.post("/attack", (req, res, next) => {
         ourState[attackY][attackX] = state.miss
         msgs.push("We hit water at " + attackX + "/" + attackY)
     }
+
+    let playerWinCheck = checkEndGame(otherState)
+    let enemyWinCheck = checkEndGame(ourState)
+    let allowTurns = true
+    if (playerWinCheck) {
+        msgs.push("You win the game!")
+        allowTurns = false
+    } else if (enemyWinCheck) {
+        msgs.push("You lost the game!")
+        allowTurns = false
+    }
+
     // Don't know if reassigning is necessary (can't hurt)
     req.session.otherState = otherState
     req.session.ourState = ourState
     
-    res.json({ourState: ourState, otherState: hideShips(otherState), myTurn: true, serverMessages: msgs})
+    res.json({ourState: ourState, otherState: hideShips(otherState), myTurn: allowTurns, serverMessages: msgs})
 })
 
 function hideShips(otherState) {
