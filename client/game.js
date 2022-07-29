@@ -14,6 +14,7 @@ const game = {
     ourState: [],
     otherState: [],
     myTurn: true,
+    messageDiv: undefined,
     drawboard: function(boardDivId) {
         const board = document.getElementById(boardDivId)
         for (let y = 0; y < this.boardsize.y; y++) {
@@ -34,6 +35,9 @@ const game = {
         document.getElementById(startgameId).addEventListener("click", async function() {
             await game.startgame()
         })
+    },
+    initializeMessage: function(messageDivId) {
+        this.messageDiv = document.getElementById(messageDivId)
     },
     startgame: async function() {
         //todo: check if ships are placed correctly
@@ -99,17 +103,22 @@ const game = {
         this.ourState = message.ourState
         this.otherState = message.otherState
         this.myTurn = message.myTurn
-        //todo: display message.serverMessages
+        let displayMessage = ""
+        for (let m of message.serverMessages) {
+            displayMessage += m + "<br/>"
+        }
+        this.messageDiv.innerHTML = displayMessage
         this.updateUi()
     }
 }
 
-function initialize(myShipsDivId, otherShipsDivId, startgameId) {
+function initialize(myShipsDivId, otherShipsDivId, startgameId, messagesDivId) {
     game.boardIds.push(myShipsDivId)
     game.boardIds.push(otherShipsDivId)
     game.drawboard(myShipsDivId)
     game.drawboard(otherShipsDivId)
     game.initializeStartButton(startgameId)
+    game.initializeMessage(messagesDivId)
 
     for (let y = 0; y < game.boardsize.y; y++) {
         let ourRow = []
