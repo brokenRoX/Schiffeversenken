@@ -145,3 +145,7 @@ section {
 .hit {
     background-color: red;
 }
+
+#messages {
+    position: fixed;
+}
