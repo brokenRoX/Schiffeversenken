@@ -45,6 +45,7 @@ a {
   -ms-transform: translate(-50%, -50%);
   color: black;
   font-size: 150px;
+    cursor: pointer;
 }
 
 #play:hover {
@@ -56,6 +57,3 @@ a {
   opacity: 0 !important;
 }
 
-#player{
-  display: none;
-}

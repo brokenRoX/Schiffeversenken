@@ -18,6 +18,10 @@ a {
     color: black;
 }
 
+#player {
+    display: none;
+}
+
 :root {
     --grid-size: 500px;
 }
@@ -69,12 +73,7 @@ header {
     margin: 40px;
 }
 
-#placeholder {
-    font-size: 45px;
-    margin: 40px;
-}
-
-main{
+main {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,37 +81,58 @@ main{
     margin-right: 200px;
 }
 
-section{
+section {
     height: 15vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#me{
+#me {
     font-size: 40px;
     margin-left: 425px;
 }
 
-#computer{
+#computer {
     font-size: 40px;
     margin-right: 385px;
 }
 
+#startgame {
+    font-size: 40px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border-radius: 20px;
+}
+
+#startgame:hover {
+    opacity: .6;
+}
+
+#startgame:active {
+    background-color: aqua;
+    transform: translateY(4px);
+}
 
 .water {
-    background-color: blue;
-  }
-  .ship {
-    background-color: black;
-  }
-  .unknown {
-    background-color: grey;
-  }
-  .miss {
+    background-color: aqua;
+}
+
+.ship {
+    background-color: gray;
+}
+
+.unknown {
+    background-color: smoke;
+}
+
+.miss {
     background-color: yellow;
-  }
-  .hit {
+}
+
+.hit {
     background-color: red;
-  }
-  
+}

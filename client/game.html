@@ -17,20 +17,33 @@
     <!--Preloader-->
     <div id="preloader"></div>
 
+    <!--Audio-->
+    <audio id="player" autoplay controls>
+        <source src="music/WTS1_mixdown.mp3" type="audio/mp3">
+    </audio>
+
     <!--Header-->
     <header>
         <div id="logo">
             Battleships
         </div>
 
-        <div id="placeholder">
-            Lorem
+        <div id="music-controls">
+            <i class="fa-solid fa-music"></i>
+            <i class="fa-solid fa-music-slash"></i>
+
+            <i class="fa-solid fa-volume-high"></i>
+            <i class="fa-solid fa-volume-slash"></i>
         </div>
     </header>
 
     <section>
         <div id="me">
             Me
+        </div>
+
+        <div>
+            <input type="button" id="startgame" value=" Start ">
         </div>
 
         <div id="computer">
@@ -45,10 +58,7 @@
         <div id="myships" class="grid"></div>
         <br />
         <div id="otherships" class="grid"></div>
-        <br/>
-        <div>
-        <input type="button" id="startgame" value="Start">
-        </div>
+
         <script type="text/javascript">
             initialize("myships", "otherships", "startgame", "messages");
         </script>
