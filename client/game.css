@@ -18,7 +18,16 @@ a {
     color: black;
 }
 
-#player {
+#preloader {
+    background: #fefefe url(images/boat-wave.gif) no-repeat center center;
+    background-size: 25%;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+}
+
+#music, #explosion{
     display: none;
 }
 
@@ -118,7 +127,7 @@ section {
 }
 
 .water {
-    background-color: aqua;
+    background: url(images/sea.png);
 }
 
 .ship {
