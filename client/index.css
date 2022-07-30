@@ -18,6 +18,15 @@ a {
   color: black;
 }
 
+#preloader{
+  background: #fefefe url(images/boat-wave.gif) no-repeat center center;
+  background-size: 25%;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+}
+
 #BG {
   background-image: url('images/BG.svg');
   background-size: cover;
